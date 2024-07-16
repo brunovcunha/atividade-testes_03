@@ -11,7 +11,7 @@ public class FuncionarioTest {
         int horasTrabalhadas = 10;
         double valorHora = 13.0;
 
-        Funcionario = new Funcionario(nome, horasTrabalhadas, valorHora);
+        Funcionario funcionario = new Funcionario(nome, horasTrabalhadas, valorHora);
 
     }
 }
