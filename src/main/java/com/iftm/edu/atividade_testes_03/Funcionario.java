@@ -6,30 +6,17 @@ public class Funcionario {
     private int horasTrabalhadas;
     private double valorHora;
 
-    public Funcionario(String nome, int horasTrabalhadas, double valorHora) {
-        this.horasTrabalhadas = validarHorasTrabalhadas(horasTrabalhadas);
-        this.nome = nome;
-        this.valorHora = validarValorHora(valorHora);
-    }
-
     public int getHorasTrabalhadas() {
         return horasTrabalhadas;
     }
 
-    public void setHorasTrabalhadas(int horasTrabalhadas) {
-        this.horasTrabalhadas = validarHorasTrabalhadas(horasTrabalhadas);
-    }
-
-    public String getNome() {
-        return nome;
-    }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public double getValorHora() {
-        return valorHora;
+    public void setHorasTrabalhadas(int horasTrabalhadas) {
+        this.horasTrabalhadas = horasTrabalhadas;
     }
 
     public void setValorHora(double valorHora) {
@@ -49,5 +36,14 @@ public class Funcionario {
             throw new IllegalArgumentException("Valor por hora deve ser entre 52.8 e 132.0");
         }
         return valorHora;
+    }
+
+    public Funcionario() {
+    }
+
+    public Funcionario( String nome, int horasTrabalhadas,double valorHora) {
+        this.horasTrabalhadas = horasTrabalhadas;
+        this.nome = nome;
+        this.valorHora = valorHora;
     }
 }
