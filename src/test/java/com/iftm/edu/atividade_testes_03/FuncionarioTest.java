@@ -1,6 +1,6 @@
 package com.iftm.edu.atividade_testes_03;
 
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -10,43 +10,45 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class FuncionarioTest {
 
-    public Funcionario funcionario;
 
-    @BeforeEach
-    public void InstanciarObjetos() {
-        funcionario = new Funcionario();
+    @Test
+    public void testarConstrutorPagamentoInvalido() {
+        String nome = "Bruno";
+        int horasTrabalhadas = 10;
+        double valorHora = 3.0;
+
     }
 
     @Test
-    public void testaConstrutorFuncionarioTest() {
-        String nome = "Bruno";
-        int horasTrabalhadas = 10;
-        double valorHora = 13.0;
-
-        funcionario = new Funcionario(nome, horasTrabalhadas, valorHora);
-    }
-
-    public void testarConstrutorPagamentoInvalido() {
-
-    }
-
     public void testarConstrutorEntradaValorHoraInvalida() {
 
+        String nome = "Bruno";
+        int horasTrabalhadas = 40;
+        double valorHora = 600.0;
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            funcionario = new Funcionario(nome, horasTrabalhadas, valorHora);
+        });
     }
 
+    @Test
     public void testarConstrutorEntradaHorasInvalida() {
 
+        String nome = "Bruno";
+        int horasTrabalhadas = 45;
+        double valorHora = 60;
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            funcionario = new Funcionario(nome, horasTrabalhadas, valorHora);
+        });
     }
 
+    @Test
     public void testarConstrutorEntradasValida() {
         String nome = "Joao";
         int horasTrabalhadas = 35;
         double valorHora = 60.0;
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            funcionario = new Funcionario(nome, horasTrabalhadas, valorHora);
-        });;
-        
     }
     
     @Test
