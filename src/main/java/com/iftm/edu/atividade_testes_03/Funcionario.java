@@ -6,6 +6,20 @@ public class Funcionario {
     private int horasTrabalhadas;
     private double valorHora;
 
+    public Funcionario( String nome, int horasTrabalhadas,double valorHora) {
+        this.horasTrabalhadas = horasTrabalhadas;
+        this.nome = nome;
+        this.valorHora = valorHora;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public double getValorHora() {
+        return valorHora;
+    }
+
     public int getHorasTrabalhadas() {
         return horasTrabalhadas;
     }
@@ -41,9 +55,5 @@ public class Funcionario {
     public Funcionario() {
     }
 
-    public Funcionario( String nome, int horasTrabalhadas,double valorHora) {
-        this.horasTrabalhadas = horasTrabalhadas;
-        this.nome = nome;
-        this.valorHora = valorHora;
-    }
+
 }

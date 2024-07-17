@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class FuncionarioTest {
 
+    private Funcionario funcionario;
 
     @Test
     public void testarConstrutorPagamentoInvalido() {
@@ -45,9 +46,15 @@ public class FuncionarioTest {
 
     @Test
     public void testarConstrutorEntradasValida() {
-        String nome = "Joao";
+        String nome = "Bruno";
         int horasTrabalhadas = 35;
         double valorHora = 60.0;
+
+        funcionario = new Funcionario(nome, horasTrabalhadas, valorHora);
+
+        assertEquals(nome, funcionario.getNome());
+        assertEquals(horasTrabalhadas, funcionario.getHorasTrabalhadas());
+        assertEquals(valorHora, funcionario.getValorHora());
 
     }
     
@@ -88,8 +95,11 @@ public class FuncionarioTest {
         int resultadoObtido = funcionario.getHorasTrabalhadas();
         assertEquals(horasTrabalhadasModificada, resultadoObtido);
     }
-    
+
+    @Test
     public void testarModificarValorPagamentoInvalido() {
+
+
 
     }
 
