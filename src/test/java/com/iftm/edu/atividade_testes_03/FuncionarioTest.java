@@ -19,6 +19,9 @@ public class FuncionarioTest {
 
         funcionario = new Funcionario(nome, horasTrabalhadas, valorHora);
 
+        assertEquals(nome, funcionario.getNome());
+        assertEquals(horasTrabalhadas, funcionario.getHorasTrabalhadas());
+        assertEquals(valorHora, funcionario.getValorHora());
 
     }
 
