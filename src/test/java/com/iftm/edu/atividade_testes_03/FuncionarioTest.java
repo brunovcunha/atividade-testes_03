@@ -1,18 +1,23 @@
 package com.iftm.edu.atividade_testes_03;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
+
 public class FuncionarioTest {
-   
+
+    public Funcionario funcionario;
+
     @Test
     public void testaConstrutorFuncionarioTest() {
         String nome = "Bruno";
         int horasTrabalhadas = 10;
         double valorHora = 13.0;
+
+        funcionario = new Funcionario(nome, horasTrabalhadas, valorHora);
 
 
     }
