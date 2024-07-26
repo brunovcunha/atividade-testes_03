@@ -98,17 +98,51 @@ public class FuncionarioTest {
 
     @Test
     public void testarModificarValorPagamentoInvalido() {
+        String nome = "Vinicius";
+        int horasTrabalhadas = 35;
+        double valorHoraValida = 50.0;
+        funcionario = new Funcionario(nome, horasTrabalhadas, valorHoraValida);
 
-
-
+        double valorHoraInvalida = -10.0;
+        assertThrows(IllegalArgumentException.class, () -> {
+            funcionario.setValorHora(valorHoraInvalida);
+        });
     }
 
+    @Test
     public void testarModificarValorEntradaInvalida() {
+        String nome = "Vinicius";
+        int horasTrabalhadas = 35;
+        double valorHoraValida = 50.0;
+        funcionario = new Funcionario(nome, horasTrabalhadas, valorHoraValida);
 
+        double valorHoraInvalida = 1000.0;
+        assertThrows(IllegalArgumentException.class, () -> {
+            funcionario.setValorHora(valorHoraInvalida);
+        });
     }
 
+    @Test
     public void testarModificarValorEntradaValida() {
+        String nome = "Vinicius";
+        int horasTrabalhadas = 35;
+        double valorHora = 50.0;
+        funcionario = new Funcionario(nome, horasTrabalhadas, valorHora);
 
+        double valorHoraModificado = 70.0;
+        funcionario.setValorHora(valorHoraModificado);
+
+        assertEquals(valorHoraModificado, funcionario.getValorHora());
     }
 
+    @Test
+    public void testarNomeFuncionarioVazio() {
+        String nome = "Vinicius";
+        int horasTrabalhadas = 30;
+        double valorHora = 50.0;
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            funcionario = new Funcionario(nome, horasTrabalhadas, valorHora);
+        });
+    }
 }
