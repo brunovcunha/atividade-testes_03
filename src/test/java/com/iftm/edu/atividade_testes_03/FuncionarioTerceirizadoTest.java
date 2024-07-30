@@ -1,7 +1,7 @@
 package com.iftm.edu.atividade_testes_03;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -69,5 +69,31 @@ public class FuncionarioTerceirizadoTest {
         funcionarioTerceirizado.setDespesas(despesasModificadas);
 
         assertEquals(despesasModificadas, funcionarioTerceirizado.getDespesas());
+    }
+
+    @Test
+    public void testarModificarNomeEntradaValida() {
+        String nome = "Lucas";
+        int horasTrabalhadas = 25;
+        double valorHora = 70.0;
+        double despesas = 300.0;
+
+        funcionarioTerceirizado = new FuncionarioTerceirizado(nome, horasTrabalhadas, valorHora, despesas);
+        funcionarioTerceirizado.setNome("Joana Silva");
+
+        assertEquals("Joana Silva", funcionarioTerceirizado.getNome());
+    }
+
+    @Test
+    public void testarModificarNomeEntradaVazia() {
+        String nome = "Lucas";
+        int horasTrabalhadas = 30;
+        double valorHora = 70.0;
+        double despesas = 400.0;
+
+        funcionarioTerceirizado = new FuncionarioTerceirizado(nome, horasTrabalhadas, valorHora, despesas);
+        assertThrows(IllegalArgumentException.class, () -> {
+            funcionarioTerceirizado.setNome("");
+        });
     }
 }

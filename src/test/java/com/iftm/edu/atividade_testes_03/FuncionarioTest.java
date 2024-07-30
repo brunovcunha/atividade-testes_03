@@ -1,12 +1,8 @@
 package com.iftm.edu.atividade_testes_03;
 
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 
 public class FuncionarioTest {
 
@@ -57,7 +53,7 @@ public class FuncionarioTest {
         assertEquals(valorHora, funcionario.getValorHora());
 
     }
-    
+
     @Test
     public void testarModificarHorasPagamentoInvalido() {
         String nome = "Joao";
@@ -70,7 +66,7 @@ public class FuncionarioTest {
             funcionario.setValorHora(valorHoraInvalida);
         });
     }
-    
+
     @Test
     public void testarModificarHorasEntradaInvalida() {
         String nome = "Joao";
@@ -143,6 +139,30 @@ public class FuncionarioTest {
 
         assertThrows(IllegalArgumentException.class, () -> {
             funcionario = new Funcionario(nome, horasTrabalhadas, valorHora);
+        });
+    }
+
+    @Test
+    public void testarModificarNomeEntradaValida() {
+        String nome = "Lucas";
+        int horasTrabalhadas = 35;
+        double valorHora = 60.0;
+
+        funcionario = new Funcionario(nome, horasTrabalhadas, valorHora);
+        funcionario.setNome("Lucas Azevedo");
+
+        assertEquals("Lucas Azevedo", funcionario.getNome());
+    }
+
+    @Test
+    public void testarModificarNomeEntradaVazia() {
+        String nome = "Lucas";
+        int horasTrabalhadas = 35;
+        double valorHora = 60.0;
+
+        funcionario = new Funcionario(nome, horasTrabalhadas, valorHora);
+        assertThrows(IllegalArgumentException.class, () -> {
+            funcionario.setNome("");
         });
     }
 }
