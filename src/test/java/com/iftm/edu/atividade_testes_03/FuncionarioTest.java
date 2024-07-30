@@ -84,7 +84,7 @@ public class FuncionarioTest {
     public void testarModificarHorasEntradaValida() {
         String nome = "Joao";
         int horasTrabalhadas = 20;
-        double valorHora = 60.0;
+        double valorHora = 70.0;
         funcionario = new Funcionario(nome, horasTrabalhadas, valorHora);
 
         int horasTrabalhadasModificada = 30;

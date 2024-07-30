@@ -6,6 +6,7 @@ public class FuncionarioTerceirizado extends Funcionario {
 
     public FuncionarioTerceirizado(String nome, int horasTrabalhadas, double valorHora, double despesas) {
         super(nome, horasTrabalhadas, valorHora);
+        validarDespesa(despesas);
         setDespesas(despesas);
     }
 
@@ -14,15 +15,21 @@ public class FuncionarioTerceirizado extends Funcionario {
     }
 
     public void setDespesas(double despesas) {
-        if (despesas < 0) {
-            throw new IllegalArgumentException("Despesas não podem ser negativas.");
-        }
+        validarDespesa(despesas);
         this.despesas = despesas;
     }
 
     @Override
     public double calcularPagamento() {
         return (getHorasTrabalhadas() * getValorHora()) + (1.1 * despesas);
+    }
+
+    public void validarDespesa(double valorDespesa) {
+        if (valorDespesa < 0) {
+            throw new IllegalArgumentException("Despesas não podem ser negativas.");
+        } else if (valorDespesa >= 1000.00) {
+            throw new IllegalArgumentException("Despesa não pode ser maior ou igual a R$ 1000.00");
+        }
     }
 
 }

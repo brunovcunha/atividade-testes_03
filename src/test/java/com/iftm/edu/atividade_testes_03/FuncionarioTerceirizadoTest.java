@@ -15,6 +15,34 @@ public class FuncionarioTerceirizadoTest {
     }
 
     @Test
+    public void testarModificarValorHoraEntradaInvalida() {
+        String nome = "Carlos";
+        int horasTrabalhadas = 40;
+        double valorHora = 40.00;
+        double despesas = 1050.00;
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            FuncionarioTerceirizado funcionarioTerceirizado = new FuncionarioTerceirizado(nome, horasTrabalhadas, valorHora, despesas);
+            System.out.println(nome + " " + horasTrabalhadas + " " + valorHora + " " + despesas);
+        });
+    }
+
+    // @Test
+    // public void teste02() {
+
+    // }
+
+    // @Test
+    // public void teste03() {
+
+    // }
+
+    // @Test
+    // public void teste04() {
+
+    // }
+
+    @Test
     public void testarConstrutorEntradaDespesasInvalida() {
         String nome = "Carlos";
         int horasTrabalhadas = 30;
