@@ -37,6 +37,10 @@ public class Funcionario {
         this.valorHora = validarValorHora(valorHora);
     }
 
+    public double calcularPagamento() {
+        return horasTrabalhadas * valorHora;
+    }
+
     private int validarHorasTrabalhadas(int horasTrabalhadas) {
         if (horasTrabalhadas <= 0 || horasTrabalhadas > 40) {
             throw new IllegalArgumentException("Horas trabalhadas devem estar entre 0 e 40");

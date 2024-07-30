@@ -19,4 +19,10 @@ public class FuncionarioTerceirizado extends Funcionario {
         }
         this.despesas = despesas;
     }
+
+    @Override
+    public double calcularPagamento() {
+        return (getHorasTrabalhadas() * getValorHora()) + (1.1 * despesas);
+    }
+
 }
