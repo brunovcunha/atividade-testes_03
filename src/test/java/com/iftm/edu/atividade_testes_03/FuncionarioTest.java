@@ -71,7 +71,7 @@ public class FuncionarioTest {
     public void testarModificarHorasEntradaInvalida() {
         String nome = "Joao";
         int horasTrabalhadasValida = 20;
-        double valorHora = 60.0;
+        double valorHora = 66.0;
         funcionario = new Funcionario(nome, horasTrabalhadasValida, valorHora);
 
         int horasTrabalhadasInvalida = 50;
@@ -88,10 +88,22 @@ public class FuncionarioTest {
         funcionario = new Funcionario(nome, horasTrabalhadas, valorHora);
 
         int horasTrabalhadasModificada = 30;
+        funcionario.setHorasTrabalhadas(horasTrabalhadasModificada);
         int resultadoObtido = funcionario.getHorasTrabalhadas();
         assertEquals(horasTrabalhadasModificada, resultadoObtido);
     }
 
+    @Test
+    public void testarModificarHorasPagamentoValido() {
+        String nome = "Joao";
+        int horasTrabalhadas = 40;
+        double valorHoraValida = 60.0;
+        funcionario = new Funcionario(nome, horasTrabalhadas, valorHoraValida);
+
+        double resultadoObtido = funcionario.getValorHora();
+        assertEquals(valorHoraValida, resultadoObtido);
+    }
+    
     @Test
     public void testarModificarValorPagamentoInvalido() {
         String nome = "Vinicius";
@@ -108,8 +120,8 @@ public class FuncionarioTest {
     @Test
     public void testarModificarValorEntradaInvalida() {
         String nome = "Vinicius";
-        int horasTrabalhadas = 35;
-        double valorHoraValida = 50.0;
+        int horasTrabalhadas = 30;
+        double valorHoraValida = 66;
         funcionario = new Funcionario(nome, horasTrabalhadas, valorHoraValida);
 
         double valorHoraInvalida = 1000.0;
