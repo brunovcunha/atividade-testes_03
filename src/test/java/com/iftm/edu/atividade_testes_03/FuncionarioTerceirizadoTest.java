@@ -15,32 +15,11 @@ public class FuncionarioTerceirizadoTest {
     }
 
     @Test
-    public void testarModificarValorHoraEntradaInvalida() {
-        String nome = "Carlos";
-        int horasTrabalhadas = 40;
-        double valorHora = 40.00;
-        double despesas = 1050.00;
-
-        assertThrows(IllegalArgumentException.class, () -> {
-            FuncionarioTerceirizado funcionarioTerceirizado = new FuncionarioTerceirizado(nome, horasTrabalhadas, valorHora, despesas);
-            System.out.println(nome + " " + horasTrabalhadas + " " + valorHora + " " + despesas);
-        });
+    public void testCalculoPagamentoFuncionarioTerceirizado() {
+        FuncionarioTerceirizado funcionarioTerceirizado = new FuncionarioTerceirizado("Carlos", 40, 53.00, 200.00);
+        assertEquals(2340.00, funcionarioTerceirizado.calcularPagamento(), 0.01);
+        assertEquals("Carlos", funcionarioTerceirizado.getNome());
     }
-
-    // @Test
-    // public void teste02() {
-
-    // }
-
-    // @Test
-    // public void teste03() {
-
-    // }
-
-    // @Test
-    // public void teste04() {
-
-    // }
 
     @Test
     public void testarConstrutorEntradaDespesasInvalida() {
@@ -58,7 +37,7 @@ public class FuncionarioTerceirizadoTest {
     public void testarConstrutorEntradasValida() {
         String nome = "Carlos";
         int horasTrabalhadas = 30;
-        double valorHora = 50.0;
+        double valorHora = 55.0;
         double despesasValidas = 200.0;
 
         funcionarioTerceirizado = new FuncionarioTerceirizado(nome, horasTrabalhadas, valorHora, despesasValidas);
@@ -73,7 +52,7 @@ public class FuncionarioTerceirizadoTest {
     public void testarModificarDespesasEntradaInvalida() {
         String nome = "Carlos";
         int horasTrabalhadas = 30;
-        double valorHora = 50.0;
+        double valorHora = 55.0;
         double despesasValidas = 200.0;
 
         funcionarioTerceirizado = new FuncionarioTerceirizado(nome, horasTrabalhadas, valorHora, despesasValidas);
@@ -88,7 +67,7 @@ public class FuncionarioTerceirizadoTest {
     public void testarModificarDespesasEntradaValida() {
         String nome = "Carlos";
         int horasTrabalhadas = 30;
-        double valorHora = 50.0;
+        double valorHora = 55.0;
         double despesasValidas = 200.0;
 
         funcionarioTerceirizado = new FuncionarioTerceirizado(nome, horasTrabalhadas, valorHora, despesasValidas);

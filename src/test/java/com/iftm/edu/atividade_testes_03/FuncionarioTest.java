@@ -1,12 +1,38 @@
 package com.iftm.edu.atividade_testes_03;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
 public class FuncionarioTest {
 
     private Funcionario funcionario;
+
+    @Test
+    public void testCalculoPagamentoFuncionario() {
+        Funcionario func = new Funcionario("Carlos", 40, 53.00);
+        assertEquals(2120.00, func.calcularPagamento(), 0.01);
+        assertEquals("Carlos", func.getNome());
+    }
+
+    @Test
+    public void testHorasTrabalhadasInvalidas() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Funcionario("Carlos", 45, 33.00);
+        });
+        assertEquals("Os funcionários podem trabalhar por no máximo 40 horas.", exception.getMessage());
+    }
+
+    @Test
+    public void testValorHoraInvalido() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            new Funcionario("Carlos", 40, 20);
+        });
+        assertTrue(exception.getMessage().contains("Valor por hora deve ser entre"));
+    }
+
 
     @Test
     public void testarConstrutorPagamentoInvalido() {
